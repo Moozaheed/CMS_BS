@@ -1,24 +1,20 @@
 <?php
 
-$db['db_host'] = 'localhost';
-$db['db_user'] = 'root';
-$db['db_pass'] ='';
-$db['db_name'] = 'cms';
+// Database configuration
+$dbHost = 'localhost';
+$dbUser = 'root';
+$dbPass = '';
+$dbName = 'cms';
 
-foreach($db as $key => $value)
-{
-    define(strtoupper($key),$value);
+// PDO connection
+try {
+    $pdo = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPass);
+    // Set PDO error mode to exception
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    //echo "Connected successfully";
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
 }
 
-$connection = mysqli_connect(DB_HOST,DB_USER,DB_PASS,DB_NAME);
-
-if($connection)
-{
-    echo "connection successful";
-}
-else
-{
-    echo "connection unsuccessful";
-}
 
 ?>
