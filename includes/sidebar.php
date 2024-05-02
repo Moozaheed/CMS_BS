@@ -19,27 +19,47 @@
         <div class="row">
             <div class="col-lg-6">
                 <ul class="list-unstyled">
-                    <li><a href="#">Category Name</a>
+
+                    <?php
+                        require "db.php";
+                        $query="select * from categories";
+                        $select_all_categories = mysqli_query($connection, $query); 
+                        while($row=mysqli_fetch_assoc($select_all_categories)){
+                            echo "<li><a href='#'>" . $row['cat_tittle'] . "</a></li>";
+                        }
+                    ?>
+                    <!-- <li><a href="#">Category Name</a>
                     </li>
                     <li><a href="#">Category Name</a>
                     </li>
                     <li><a href="#">Category Name</a>
                     </li>
                     <li><a href="#">Category Name</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <!-- /.col-lg-6 -->
             <div class="col-lg-6">
                 <ul class="list-unstyled">
-                    <li><a href="#">Category Name</a>
+                    
+                    <?php
+                        //require "db.php";
+                        $query="select * from categories";
+                        $select_all_categories = mysqli_query($connection, $query); 
+                        while($row=mysqli_fetch_assoc($select_all_categories)){
+                            echo "<li><a href='#'>" . $row['cat_tittle'] . "</a></li>";
+                        }
+                    ?>
+                
+                
+                    <!-- <li><a href="#">Category Name</a>
                     </li>
                     <li><a href="#">Category Name</a>
                     </li>
                     <li><a href="#">Category Name</a>
                     </li>
                     <li><a href="#">Category Name</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
             <!-- /.col-lg-6 -->
@@ -52,5 +72,5 @@
         <h4>Side Widget Well</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
     </div>
-    
+
 </div>
